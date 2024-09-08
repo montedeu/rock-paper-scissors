@@ -42,13 +42,31 @@ function playRound(humanChoice, computerChoice) {
     }
     console.log(`Score(human, computer): ${humanScore}, ${computerScore}`)
 }
-while (true) {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
 
-    if (humanSelection == 'quit') {
-        break;
-    }
 
-    playRound(humanSelection, computerSelection);
-}
+let computerSelection = getComputerChoice();
+let rock = document.getElementById('rock');
+let paper = document.getElementById('paper');
+let scissors = document.getElementById('scissors');
+rock.addEventListener('click', () => {
+    playRound('rock', computerSelection);
+    results = `Score(human, computer): ${humanScore}, ${computerScore}`;
+    div.textContent = results;
+});
+paper.addEventListener('click', () => {
+    playRound('paper', computerSelection);
+    results = `Score(human, computer): ${humanScore}, ${computerScore}`;
+    div.textContent = results;
+});
+scissors.addEventListener('click',() => {
+    playRound('scissors', computerSelection);
+    results = `Score(human, computer): ${humanScore}, ${computerScore}`;
+    div.textContent = results;
+});
+
+const choices_div = document.getElementById('choices');
+const div = document.createElement("div");
+div.setAttribute('id', 'results');
+choices_div.appendChild(div);
+results = `Score(human, computer): ${humanScore}, ${computerScore}`;
+div.textContent = results;
